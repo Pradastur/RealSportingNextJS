@@ -1,7 +1,5 @@
 .container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  width: 100%;
 }
 
 .header {
@@ -10,16 +8,27 @@
   align-items: center;
 }
 
-.headerImage {
-  width: 6rem;
-  height: 6rem;
+.band{
+  background: #e2001a;
+  width: 100%;
 }
 
-.headerHomeImage {
-  width: 8rem;
+.headerImage {
+  width: 14rem;
   height: 8rem;
 }
 
+.main{
+  width: 900px;
+}
+
+.headerHomeImage {
+  width: 12rem;
+    height: 7rem;
+    margin: 1% auto 1% 10%;
+}
+
 .backToHome {
-  margin: 3rem 0 0;
+  margin: 0 0 0 10%;
+    font-weight: bold;
 }

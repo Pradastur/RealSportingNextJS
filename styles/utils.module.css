@@ -1,10 +1,12 @@
 .headingMd {
   font-size: 1.2rem;
   line-height: 1.5;
+  color: #e2001a;
 }
 
 .padding1px {
   padding-top: 1px;
+  margin-left: 5%;
 }
 
 .playersTable{
@@ -46,8 +48,9 @@
   justify-content: center;
   flex-wrap: wrap;
 
-  max-width: 800px;
+  max-width: 80%;
   margin-top: 3rem;
+  justify-content: flex-start;
 }
 
 .card {
@@ -61,8 +64,98 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   color: black;
-  border-color: black;
   display: flex;
+}
+
+.cardPlayer:hover{
+  cursor: pointer;
+  opacity: 70%;
+}
+
+.nameCard:hover{
+  opacity: 100%;
+}
+
+.cardPlayer{
+  margin-right: 3%;
+}
+
+.nameCard{
+  position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 1.5%;
+    height: 250px;
+    opacity: 0%;
+    width: 10%;
+    margin-top: 8%;
+}
+
+.nameCardText{
+  font-weight: bolder;
+}
+
+.nameCardPosition{
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.dorsal{
+  font-size: 18px;
+  font-weight: bolder;
+
+}
+
+.divider{
+  height: 2px;
+  color: black;
+}
+
+.title{
+  font-size: 32px;
+  margin-bottom: 0px;
+}
+
+.top{
+  display: flex;
+  flex-direction: row;
+}
+
+.detailPhoto{
+  height: 350px;
+  width: 250px;
+}
+
+.topPhoto{
+  height: 250px;
+    width: 250px;
+    margin: 40% auto auto auto;
+}
+
+.cardPlayerDetail{
+  color:#e2001a;
+  width: 100%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;
+}
+
+.playerDetail{
+  margin-left: 25%;
+}
+
+.moreInfo{
+  margin-left: 20%;
+  width: 100%;
+  color: black;
+}
+
+.main{
+  width: 100%;
+}
+
+.leftColumn{
+  width: 60%;
 }
 
 .card h3 {
@@ -78,4 +171,9 @@
 
 .detailName{
   align-self: center;
+}
+
+.photo{
+  height: 250px;
+  width: 180px;
 }

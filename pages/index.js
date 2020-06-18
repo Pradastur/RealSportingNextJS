@@ -1,39 +1,35 @@
-import Head from 'next/head'
+import React from 'react';
 import Layout from '../components/layout'
+import Player from '../components/player.js'
 import utilStyles from '../styles/utils.module.css'
-import { getAllPlayers } from '../lib/posts'
-import Link from 'next/link'
-import Date from '../components/date'
+import { getPlayersIdByPosition, getPlayersById, getPositionsName} from '../lib/playersApi'
 
-export default function Home({ allPlayers }) {
+
+export default function Home({playersByPosition, playersById, positionsName}) {
+  console.log(Object.keys(playersByPosition))
   return (
     <Layout home>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-      <div>
+
+      <div className={utilStyles.top}>
+        <div className={utilStyles.topLeft}>
             <h1>
-                Jugadores de la plantilla
+                Plantilla del Real Sporting de Gijon SAD
             </h1>
-            <div className={`${utilStyles.playersTable}`}>
-            <table className={`${utilStyles.table}`}>
-                <thead>
-                <tr className={`${utilStyles.tabletitle} ${utilStyles.tr}`}>
-                    <th className={`${utilStyles.title} ${utilStyles.th}`}>id</th>
-                    <th className={`${utilStyles.title} ${utilStyles.th}`}>Jugador</th>
-                    <th className={`${utilStyles.title} ${utilStyles.th}`}>Posicion</th>
-                </tr>
-                </thead>
-                <tbody>
-                {allPlayers.map(player=>(
-                    <Link href="/players/[id]" as={`/players/${player.id}`}>
-                  <tr className={`${utilStyles.tableplayer} ${utilStyles.tr}`}>
-                        <td className={`${utilStyles.playerInfo} ${utilStyles.td}`}>{player.id}</td>
-                        <td className={`${utilStyles.playerInfo} ${utilStyles.td}`}>{player.name}</td>
-                        <td className={`${utilStyles.playerInfo} ${utilStyles.td}`}>{player.position}</td>
-                    </tr></Link>
-                ))}
-                </tbody>
-            </table>
+            <hr className={utilStyles.divider}></hr>
+            <img className={utilStyles.squadPhoto} src="/images/plantilla.jpg"/>
             </div>
+            </div>
+          <div className={utilStyles.bottom}>
+            {Object.keys(playersByPosition).sort().map(position =>{
+              return(<>
+                <h1 key={position}>{positionsName[position]}</h1>
+                <hr className={utilStyles.divider}></hr>
+                <div className={utilStyles.grid}>
+                {playersByPosition[position].map(playerId =>
+                  <Player player={playersById[playerId]}/>
+                )}</div></>)
+              })}
             </div>
       </section>
     </Layout>
@@ -41,10 +37,16 @@ export default function Home({ allPlayers }) {
 }
 
 export async function getStaticProps() {
-  const allPlayers = getAllPlayers()
+  const playersByPosition=getPlayersIdByPosition()
+  const playersById=getPlayersById();
+  const positionsName=getPositionsName()
   return {
     props: {
-      allPlayers
+      playersByPosition,
+      playersById,
+      positionsName
     }
   }
 }
+
+

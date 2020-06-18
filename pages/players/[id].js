@@ -1,6 +1,7 @@
 import Layout,{ playersDetails } from '../../components/layout'
-import {getAllPlayersIds , getPlayer} from '../../lib/players'
+import {getAllPlayersIds , getPlayer} from '../../lib/posts'
 import Head from 'next/head'
+import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 
 export default function Player({ playerDetail }) {
@@ -10,36 +11,20 @@ export default function Player({ playerDetail }) {
       <title>{playerDetail.Nombre}</title>
       </Head>
         <div className={utilStyles.grid}>
-          <div className={utilStyles.cardPlayerDetail}>
-            <div className={utilStyles.playerPhotoDetail}>
-            <img className={utilStyles.detailPhoto} src={playerDetail.photo}/>
+          <div className={utilStyles.card}>
+            <div className={utilStyles.detailName}>
+            <h1>{playerDetail.name}  </h1>
             </div>
-            <div className={utilStyles.playerDetail}>
-                <h2>{playerDetail.name}</h2>
-                <div className={utilStyles.moreInfo}>
-                <div className={utilStyles.playerNumber}>
-                <h4>Dorsal: {playerDetail.id}</h4>
-                </div>
-                <div className={utilStyles.playerNationality}>
-                <h4>Nacionalidad: {playerDetail.nationality}</h4>
-                </div>
-                <div className={utilStyles.playerPosition}>
-                <h4>Posición: {playerDetail.position}</h4>
-                </div>
-                <div className={utilStyles.playerHeight}>
-                <h4>Altura: {playerDetail.height}</h4>
-                </div>
-                </div>
+            <div className={utilStyles.card}>
+              <h5>Posicion: {playerDetail.position}</h5>
             </div>
-            
+            <div className={utilStyles.card}>
+            <h5>Dorsal: {playerDetail.id}</h5>
+            </div>
+            <div className={utilStyles.card}>
+            <h5>Nacionalidad: {playerDetail.nationality}</h5>
           </div>
-        </div>
-        <div className={utilStyles.detailInfo}>
-        <div className={utilStyles.grid}>
-          <div className={utilStyles.cardPlayerInfoDetail}>
-                     
           </div>
-        </div>
         </div>
     </Layout>
   )
